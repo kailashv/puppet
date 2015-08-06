@@ -1,22 +1,22 @@
-# execute 'apt-get update'
-exec { 'apt-update':                    # exec resource named 'apt-update'
-  command => '/usr/bin/apt-get update'  # command this resource will run
+# execute 'yum update'
+exec { 'yum update':                    # exec resource named 'yum update'
+  command => '/usr/bin/yum update'  # command this resource will run
 }
 
-# install apache2 package
-package { 'apache2':
-  require => Exec['apt-update'],        # require 'apt-update' before installing
+# install httpd package
+package { 'httpd':
+  require => Exec['yum update'],        
   ensure => installed,
 }
 
-# ensure apache2 service is running
-service { 'apache2':
+# ensure httpd service is running
+service { 'httpd':
   ensure => running,
 }
 
 # install mysql-server package
 package { 'mysql-server':
-  require => Exec['apt-update'],        # require 'apt-update' before installing
+  require => Exec['yum update'],        
   ensure => installed,
 }
 
@@ -27,7 +27,7 @@ service { 'mysql':
 
 # install php5 package
 package { 'php5':
-  require => Exec['apt-update'],        # require 'apt-update' before installing
+  require => Exec['yum update'],        
   ensure => installed,
 }
 
@@ -35,5 +35,5 @@ package { 'php5':
 file { '/var/www/html/info.php':
   ensure => file,
   content => '<?php  phpinfo(); ?>',    # phpinfo code
-  require => Package['apache2'],        # require 'apache2' package before creating
+  require => Package['httpd'],        # require 'httpd' package before creating
 } 
