@@ -1,10 +1,8 @@
 
-node 'puppetagent.cybage.com' {
 
-user { 'mannparul':
 
-	ensure => present,
+package { 'httpd':
 
-}
+	ensure => installed,
 
 }
