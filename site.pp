@@ -1,6 +1,6 @@
 # execute 'yum update'
 exec { 'yum update':                    # exec resource named 'yum update'
-  command => '/usr/bin/yum update'  # command this resource will run
+  command => '/usr/bin/yum -y update'  # command this resource will run
 }
 
 # install httpd package
