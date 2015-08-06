@@ -25,8 +25,8 @@ service { 'mysql':
   ensure => running,
 }
 
-# install php5 package
-package { 'php5':
+# install php package
+package { 'php':
   #require => Exec['yum update'],        
   ensure => installed,
 }
