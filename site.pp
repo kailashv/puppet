@@ -5,7 +5,7 @@ exec { 'yum update':                    # exec resource named 'yum update'
 
 # install httpd package
 package { 'httpd':
-  require => Exec['yum update'],        
+  #require => Exec['yum update'],        
   ensure => installed,
 }
 
@@ -16,7 +16,7 @@ service { 'httpd':
 
 # install mysql-server package
 package { 'mysql-server':
-  require => Exec['yum update'],        
+  #require => Exec['yum update'],        
   ensure => installed,
 }
 
@@ -27,7 +27,7 @@ service { 'mysql':
 
 # install php5 package
 package { 'php5':
-  require => Exec['yum update'],        
+  #require => Exec['yum update'],        
   ensure => installed,
 }
 
