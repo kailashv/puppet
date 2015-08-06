@@ -1,8 +1,8 @@
 
 
 
-package { 'httpd':
+user { 'kailashv':
 
-	ensure => installed,
+	ensure => present,
 
 }
