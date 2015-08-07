@@ -23,8 +23,9 @@ package { 'mysql-server':
 
 # ensure mysql service is running
 service { 'mysqld':
-  ensure => running,
-  require => Package['mysql-server'],
+require => Package['mysql-server'],
+ensure => running,
+  
 }
 
 # install php package
