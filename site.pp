@@ -37,6 +37,5 @@ package { 'php':
 file { '/var/www/html/info.php':
   ensure => file,
   content => '<?php  phpinfo(); ?>',    # phpinfo code
-  require => Package['php'],
-  require => Package['httpd'],        # require 'httpd' package before creating
+  require => Package['httpd','php'],        # require 'httpd' package before creating
 } 
