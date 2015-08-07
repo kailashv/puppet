@@ -21,7 +21,7 @@ package { 'mysql-server':
 }
 
 # ensure mysql service is running
-service { 'mysql':
+service { 'mysqld':
   ensure => running,
 }
 
